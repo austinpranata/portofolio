@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #14110e; font-family: "Instrument Sans", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #7a2b2b; }
+</style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+  <section data-label="Cover" style="background: #f7f5f2; color: #1b1815; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 90px; align-items: center; padding: 90px 120px; box-sizing: border-box">
+    <div>
+      <p style="margin: 0 0 32px; display: flex; align-items: center; gap: 16px; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: #7a2b2b; font-weight: 600"><span style="width: 44px; height: 2px; background: #7a2b2b; display: inline-block"></span><span>Portfolio 2026</span></p>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 150px; line-height: 0.98; letter-spacing: -0.02em"><span style="display: block">Elycia</span><em style="color: #7a2b2b">Winata</em></h1>
+      <p style="margin: 44px 0 0; font-size: 34px; line-height: 1.5; color: rgba(27,24,21,0.7); max-width: 15em">Marketing Communication — Binus University</p>
+      <p style="margin: 40px 0 0; font-size: 25px; color: rgba(27,24,21,0.55)">winataelycia@gmail.com · +62 822-2602-0578 · @elycia.w</p>
+    </div>
+    <div style="position: relative; height: 100%">
+      <div style="position: absolute; inset: 44px -26px -26px 26px; background: rgba(122,43,43,0.1); border-radius: 320px 320px 0 0"></div>
+      <div style="position: absolute; inset: 0; border-radius: 320px 320px 0 0; overflow: hidden; background: #e9e4de">
+        <img src="assets/photo-p1-7.png" alt="Portrait of Elycia Winata" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%" />
+      </div>
+    </div>
+  </section>
+
+  <section data-label="About" style="background: #f7f5f2; color: #1b1815; display: grid; grid-template-columns: 500px 1fr; gap: 100px; align-items: center; padding: 100px 120px; box-sizing: border-box">
+    <div style="height: 100%; border-radius: 24px; overflow: hidden">
+      <img src="assets/photo-p2-7.png" alt="Elycia at Binus University" style="width: 100%; height: 100%; object-fit: cover" />
+    </div>
+    <div>
+      <h2 style="margin: 0 0 44px; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: #7a2b2b; font-weight: 600">01 — About Me</h2>
+      <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 56px; line-height: 1.3; letter-spacing: -0.01em; text-wrap: pretty">An 8th-semester Marketing Communication student at Binus University — graduating 2026 — who believes good marketing starts with <em style="color: #7a2b2b">genuine communication</em>.</p>
+      <p style="margin: 44px 0 0; font-size: 29px; line-height: 1.65; color: rgba(27,24,21,0.7); max-width: 30em">Active across campus organizations, activities, and internships — each strengthening my marketing communication, leadership, and teamwork skills — and looking for roles centred on marketing strategy and communication.</p>
+    </div>
+  </section>
+
+  <section data-label="Education" style="background: #efece7; color: #1b1815; display: flex; flex-direction: column; justify-content: center; padding: 100px 140px; box-sizing: border-box">
+    <h2 style="margin: 0 0 70px; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: #7a2b2b; font-weight: 600">02 — Education Background</h2>
+    <div style="display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: baseline; padding-bottom: 54px; border-bottom: 2px solid rgba(27,24,21,0.12)">
+      <div>
+        <h3 style="margin: 0 0 16px; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 68px; letter-spacing: -0.01em">Binus University</h3>
+        <p style="margin: 0; font-size: 30px; color: rgba(27,24,21,0.6)">S1 Marketing Communication</p>
+      </div>
+      <span style="font-family: ui-monospace, Menlo, monospace; font-size: 30px; color: #7a2b2b">2022 — 2026</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: baseline; padding-top: 54px">
+      <div>
+        <h3 style="margin: 0 0 16px; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 68px; letter-spacing: -0.01em">Tunas Mulia Senior High School</h3>
+        <p style="margin: 0; font-size: 30px; color: rgba(27,24,21,0.6)">Senior secondary education</p>
+      </div>
+      <span style="font-family: ui-monospace, Menlo, monospace; font-size: 30px; color: #7a2b2b">2019 — 2022</span>
+    </div>
+  </section>
+
+  <section data-label="Skills" style="background: #f7f5f2; color: #1b1815; display: flex; flex-direction: column; justify-content: center; padding: 100px 140px; box-sizing: border-box">
+    <h2 style="margin: 0 0 64px; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: #7a2b2b; font-weight: 600">03 — Soft &amp; Hard Skills</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: start">
+      <div>
+        <h3 style="margin: 0 0 36px; font-size: 25px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(27,24,21,0.5)">Hard Skills</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 18px">
+          <span style="padding: 20px 36px; background: #7a2b2b; color: #f7f5f2; border-radius: 999px; font-size: 27px; font-weight: 500">Google Ads</span>
+          <span style="padding: 20px 36px; background: #7a2b2b; color: #f7f5f2; border-radius: 999px; font-size: 27px; font-weight: 500">Meta Ads</span>
+          <span style="padding: 20px 36px; background: #7a2b2b; color: #f7f5f2; border-radius: 999px; font-size: 27px; font-weight: 500">TikTok Ads</span>
+          <span style="padding: 20px 36px; background: #7a2b2b; color: #f7f5f2; border-radius: 999px; font-size: 27px; font-weight: 500">Shopee Ads</span>
+          <span style="padding: 20px 36px; background: #7a2b2b; color: #f7f5f2; border-radius: 999px; font-size: 27px; font-weight: 500">SEO Copywriting</span>
+          <span style="padding: 20px 36px; background: #ffffff; border: 2px solid rgba(27,24,21,0.14); border-radius: 999px; font-size: 27px">Brand24</span>
+          <span style="padding: 20px 36px; background: #ffffff; border: 2px solid rgba(27,24,21,0.14); border-radius: 999px; font-size: 27px">Google Workspace</span>
+          <span style="padding: 20px 36px; background: #ffffff; border: 2px solid rgba(27,24,21,0.14); border-radius: 999px; font-size: 27px">Microsoft Office</span>
+          <span style="padding: 20px 36px; background: #ffffff; border: 2px solid rgba(27,24,21,0.14); border-radius: 999px; font-size: 27px">Canva</span>
+          <span style="padding: 20px 36px; background: #ffffff; border: 2px solid rgba(27,24,21,0.14); border-radius: 999px; font-size: 27px">CapCut</span>
+          <span style="padding: 20px 36px; background: #ffffff; border: 2px solid rgba(27,24,21,0.14); border-radius: 999px; font-size: 27px">InShot</span>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin: 0 0 36px; font-size: 25px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(27,24,21,0.5)">Soft Skills</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 18px">
+          <span style="padding: 20px 36px; border: 2px solid rgba(27,24,21,0.2); border-radius: 999px; font-size: 27px">Communication</span>
+          <span style="padding: 20px 36px; border: 2px solid rgba(27,24,21,0.2); border-radius: 999px; font-size: 27px">Public Relations</span>
+          <span style="padding: 20px 36px; border: 2px solid rgba(27,24,21,0.2); border-radius: 999px; font-size: 27px">Adaptability</span>
+          <span style="padding: 20px 36px; border: 2px solid rgba(27,24,21,0.2); border-radius: 999px; font-size: 27px">Time Management</span>
+          <span style="padding: 20px 36px; border: 2px solid rgba(27,24,21,0.2); border-radius: 999px; font-size: 27px">Collaboration</span>
+          <span style="padding: 20px 36px; border: 2px solid rgba(27,24,21,0.2); border-radius: 999px; font-size: 27px">Teamwork</span>
+          <span style="padding: 20px 36px; border: 2px solid rgba(27,24,21,0.2); border-radius: 999px; font-size: 27px">Problem Solving</span>
+          <span style="padding: 20px 36px; border: 2px solid rgba(27,24,21,0.2); border-radius: 999px; font-size: 27px">Creativity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Working Experience" style="background: #f7f5f2; color: #1b1815; display: flex; flex-direction: column; justify-content: center; gap: 36px; padding: 90px 140px; box-sizing: border-box">
+    <h2 style="margin: 0; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: #7a2b2b; font-weight: 600">04 — Working Experience</h2>
+    <div style="background: #1b1815; color: #f7f5f2; border-radius: 28px; padding: 46px 56px; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center">
+      <div>
+        <p style="margin: 0 0 12px; font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,245,242,0.6); font-weight: 600">Aryaduta Head Office</p>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 54px; letter-spacing: -0.01em">Marketing Communication Intern</h3>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 14px">
+        <span style="padding: 10px 24px; background: #7a2b2b; color: #f7f5f2; border-radius: 999px; font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600">Current</span>
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 25px; color: rgba(247,245,242,0.7)">Aug — Dec 2026</span>
+      </div>
+    </div>
+    <div style="background: #7a2b2b; color: #f7f5f2; border-radius: 28px; padding: 46px 56px">
+      <div style="display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center">
+        <div>
+          <p style="margin: 0 0 12px; font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,245,242,0.6); font-weight: 600">Kawan Lama Group — Ruparupa</p>
+          <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 54px; letter-spacing: -0.01em">SEO/SEM Strategist Intern</h3>
+        </div>
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 25px; color: rgba(247,245,242,0.7)">2025 — 2026</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 36px">
+        <img src="assets/exp-p5-8.png" alt="At the Kawan Lama head office" style="width: 100%; height: 240px; object-fit: cover; border-radius: 16px" />
+        <img src="assets/exp-p5-6.png" alt="Retail on TikTok event" style="width: 100%; height: 240px; object-fit: cover; border-radius: 16px" />
+        <img src="assets/exp-p5-7.png" alt="Ruparupa anniversary" style="width: 100%; height: 240px; object-fit: cover; border-radius: 16px" />
+        <img src="assets/exp-p5-9.png" alt="Intern graduation" style="width: 100%; height: 240px; object-fit: cover; border-radius: 16px" />
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Organizational — Campus" style="background: #efece7; color: #1b1815; display: flex; flex-direction: column; justify-content: center; gap: 44px; padding: 90px 140px; box-sizing: border-box">
+    <h2 style="margin: 0; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: #7a2b2b; font-weight: 600">05 — Organizational Experience · Campus</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px 56px">
+      <div style="display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; background: #ffffff; border-radius: 20px; padding: 28px; box-sizing: border-box">
+        <img src="assets/exp-p6-6.png" alt="Hapkido Binus LDK" style="width: 220px; height: 160px; object-fit: cover; border-radius: 14px" />
+        <div>
+          <h3 style="margin: 0 0 10px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em">Secretary General</h3>
+          <p style="margin: 0 0 8px; font-size: 25px; color: rgba(27,24,21,0.6)">Hapkido Binus</p>
+          <p style="margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 24px; color: #7a2b2b">2024 — 2025</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; background: #ffffff; border-radius: 20px; padding: 28px; box-sizing: border-box">
+        <img src="assets/exp-p6-8.png" alt="Hapkido Binus training" style="width: 220px; height: 160px; object-fit: cover; border-radius: 14px" />
+        <div>
+          <h3 style="margin: 0 0 10px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em">Head of Activist Public Relations</h3>
+          <p style="margin: 0 0 8px; font-size: 25px; color: rgba(27,24,21,0.6)">Hapkido Binus</p>
+          <p style="margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 24px; color: #7a2b2b">2023 — 2024</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; background: #ffffff; border-radius: 20px; padding: 28px; box-sizing: border-box">
+        <img src="assets/exp-p7-7.png" alt="First Year Program team" style="width: 220px; height: 160px; object-fit: cover; border-radius: 14px" />
+        <div>
+          <h3 style="margin: 0 0 10px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em">Freshmen Partner, First Year Program</h3>
+          <p style="margin: 0 0 8px; font-size: 25px; color: rgba(27,24,21,0.6)">Binus University — Binusian 2027</p>
+          <p style="margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 24px; color: #7a2b2b">2023 — 2024</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; background: #ffffff; border-radius: 20px; padding: 28px; box-sizing: border-box">
+        <img src="assets/exp-p7-9.png" alt="Freshmen Leader gathering" style="width: 220px; height: 160px; object-fit: cover; border-radius: 14px" />
+        <div>
+          <h3 style="margin: 0 0 10px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em">Freshmen Leader, First Year Program</h3>
+          <p style="margin: 0 0 8px; font-size: 25px; color: rgba(27,24,21,0.6)">Binus University — Binusian 2027</p>
+          <p style="margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 24px; color: #7a2b2b">2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Organizational — School" style="background: #efece7; color: #1b1815; display: flex; flex-direction: column; justify-content: center; gap: 44px; padding: 90px 140px; box-sizing: border-box">
+    <h2 style="margin: 0; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: #7a2b2b; font-weight: 600">05 — Organizational Experience · Community &amp; School</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px 56px">
+      <div style="display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; background: #ffffff; border-radius: 20px; padding: 28px; box-sizing: border-box">
+        <img src="assets/exp-p8-6.png" alt="Himmcomm Binus activity" style="width: 220px; height: 160px; object-fit: cover; border-radius: 14px" />
+        <div>
+          <h3 style="margin: 0 0 10px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em">Activist of Himmcomm</h3>
+          <p style="margin: 0 0 8px; font-size: 25px; color: rgba(27,24,21,0.6)">Himmcomm Binus</p>
+          <p style="margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 24px; color: #7a2b2b">2023</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; background: #ffffff; border-radius: 20px; padding: 28px; box-sizing: border-box">
+        <img src="assets/exp-p8-7.png" alt="Student council at Tunas Mulia" style="width: 220px; height: 160px; object-fit: cover; border-radius: 14px" />
+        <div>
+          <h3 style="margin: 0 0 10px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em">Student Council</h3>
+          <p style="margin: 0 0 8px; font-size: 25px; color: rgba(27,24,21,0.6)">Tunas Mulia SHS — superior personality, national insight &amp; national defense</p>
+          <p style="margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 24px; color: #7a2b2b">2021 — 2022</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; background: #ffffff; border-radius: 20px; padding: 28px; box-sizing: border-box">
+        <img src="assets/exp-p9-6.png" alt="Student council activity" style="width: 220px; height: 160px; object-fit: cover; border-radius: 14px" />
+        <div>
+          <h3 style="margin: 0 0 10px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em">Student Council</h3>
+          <p style="margin: 0 0 8px; font-size: 25px; color: rgba(27,24,21,0.6)">Tunas Mulia SHS — physical quality, health &amp; nutrition</p>
+          <p style="margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 24px; color: #7a2b2b">2019 — 2020</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Contact" style="background: #1b1815; color: #f7f5f2; display: flex; flex-direction: column; justify-content: center; padding: 100px 140px; box-sizing: border-box">
+    <p style="margin: 0 0 30px; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(247,245,242,0.5); font-weight: 600">06 — Contact</p>
+    <h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 130px; letter-spacing: -0.02em; line-height: 1.02">Let's work <em style="color: oklch(0.72 0.09 25)">together</em></h2>
+    <div style="display: grid; grid-template-columns: repeat(2, auto); gap: 36px 100px; justify-content: start; margin-top: 80px">
+      <div>
+        <p style="margin: 0 0 10px; font-size: 24px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.45)">Email</p>
+        <p style="margin: 0; font-size: 36px">winataelycia@gmail.com</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 10px; font-size: 24px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.45)">Phone</p>
+        <p style="margin: 0; font-size: 36px">+62 822-2602-0578</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 10px; font-size: 24px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.45)">LinkedIn</p>
+        <p style="margin: 0; font-size: 36px">linkedin.com/in/elycia-winata</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 10px; font-size: 24px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.45)">Instagram</p>
+        <p style="margin: 0; font-size: 36px">@elycia.w</p>
+      </div>
+    </div>
+  </section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    if (new URLSearchParams(window.location.search).has("print")) {
+      setTimeout(() => window.print(), 1600);
+    }
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

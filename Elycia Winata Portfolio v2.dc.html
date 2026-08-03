@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { margin: 0; background: #f7f5f2; color: #1b1815; font-family: "Instrument Sans", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #1b1815; text-decoration: none; transition: color .18s, background .18s, border-color .18s, transform .18s; }
+  a:hover { color: var(--accent, #7a2b2b); }
+  ::selection { background: rgba(122,43,43,0.18); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    #site-header, #marquee, #dl-btn { display: none !important; }
+  }
+  @media (max-width: 860px) {
+    .rg-container { padding-left: 24px !important; padding-right: 24px !important; }
+    .rg-2col { grid-template-columns: 1fr !important; gap: 44px !important; }
+    .rg-hero { grid-template-columns: 1fr !important; gap: 40px !important; padding-top: 48px !important; padding-bottom: 64px !important; }
+    .rg-hero-visual { max-width: 320px; margin: 0 auto; order: -1; }
+    .rg-hero-visual > div:first-child { inset: 24px -14px -14px 14px !important; }
+    .rg-hero-visual .currently-badge { left: 0 !important; bottom: -18px !important; padding: 12px 18px !important; }
+    .rg-hero-stats { grid-template-columns: repeat(2, 1fr) !important; column-gap: 28px !important; row-gap: 24px !important; }
+    .rg-contact { grid-template-columns: repeat(2, 1fr) !important; }
+    .nav-links { display: none !important; }
+    .rg-org-row { grid-template-columns: 64px 1fr !important; row-gap: 4px !important; column-gap: 16px !important; }
+    .rg-org-row img { width: 64px !important; height: 56px !important; }
+    .rg-org-row .org-date { grid-column: 2; justify-self: start; }
+    .rg-photos { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 640px) {
+    #site-header .logo-text { display: none !important; }
+  }
+  @media (max-width: 480px) {
+    .rg-contact { grid-template-columns: 1fr !important; }
+    .rg-hero-stats { grid-template-columns: repeat(3, 1fr) !important; column-gap: 16px !important; }
+    .rg-navbtn-text { display: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="--accent: {{ accent }}; --accent-tint: {{ accentTint }}; --portrait-radius: {{ portraitRadius }}">
+
+  <header id="site-header" style="position: sticky; top: 0; z-index: 30; background: rgba(247,245,242,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(27,24,21,0.08)">
+    <div class="rg-container" style="max-width: 1220px; margin: 0 auto; padding: 0 40px; height: 76px; display: flex; align-items: center; justify-content: space-between">
+      <a href="#top" style="display: flex; align-items: center; gap: 12px">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent, #7a2b2b); display: block"></span>
+        <span class="logo-text" style="font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600">Elycia Winata</span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 20px; font-size: 15px">
+        <div class="nav-links" style="display: flex; align-items: center; gap: 34px">
+          <a href="#about" style="color: rgba(27,24,21,0.65)">About</a>
+          <a href="#skills" style="color: rgba(27,24,21,0.65)">Skills</a>
+          <a href="#experience" style="color: rgba(27,24,21,0.65)">Experience</a>
+        </div>
+        <button id="dl-btn" onClick="{{ downloadPdf }}" style="padding: 10px 18px; background: transparent; border: 1px solid rgba(27,24,21,0.25); border-radius: 999px; font-size: 15px; font-weight: 500; font-family: inherit; color: #1b1815; cursor: pointer; transition: border-color .18s, color .18s; white-space: nowrap" style-hover="border-color: var(--accent, #7a2b2b); color: var(--accent, #7a2b2b)"><span class="rg-navbtn-text">Download PDF </span>⤓</button>
+        <a href="#contact" style="padding: 10px 18px; background: #1b1815; color: #f7f5f2; border-radius: 999px; font-weight: 500; white-space: nowrap" style-hover="background: var(--accent, #7a2b2b); color: #f7f5f2">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" class="rg-container rg-hero" style="max-width: 1220px; margin: 0 auto; padding: 90px 40px 110px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center">
+    <div style="animation: rise .7s ease both">
+      <p style="margin: 0 0 26px; display: flex; align-items: center; gap: 14px; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent, #7a2b2b); font-weight: 600"><span style="width: 34px; height: 1px; background: var(--accent, #7a2b2b); display: inline-block"></span><span>Marketing Communication — Jakarta</span></p>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(52px, 8vw, 96px); line-height: 0.98; letter-spacing: -0.02em"><span style="display: block">Elycia</span><em style="color: var(--accent, #7a2b2b)">Winata</em></h1>
+      <p style="margin: 34px 0 0; font-size: 20px; line-height: 1.65; max-width: 27em; color: rgba(27,24,21,0.7); text-wrap: pretty">Final-year Marketing Communication student at Binus University, now a Marketing Communication Intern at Aryaduta Head Office, after a year of SEO/SEM strategy at Ruparupa, Kawan Lama Group.</p>
+      <div style="display: flex; gap: 14px; margin-top: 42px; flex-wrap: wrap">
+        <a href="#contact" style="padding: 16px 32px; background: var(--accent, #7a2b2b); color: #f7f5f2; border-radius: 999px; font-size: 15px; font-weight: 600" style-hover="background: #1b1815; color: #f7f5f2; transform: translateY(-2px)">Let's work together</a>
+        <a href="#experience" style="padding: 16px 32px; border: 1px solid rgba(27,24,21,0.22); border-radius: 999px; font-size: 15px; font-weight: 500" style-hover="border-color: #1b1815; transform: translateY(-2px)">View experience</a>
+      </div>
+      <div class="rg-hero-stats" style="display: grid; grid-template-columns: repeat(3, auto); gap: 48px; justify-content: start; margin-top: 64px; padding-top: 36px; border-top: 1px solid rgba(27,24,21,0.12)">
+        <div>
+          <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 40px; line-height: 1">2026</p>
+          <p style="margin: 8px 0 0; font-size: 14px; color: rgba(27,24,21,0.55); letter-spacing: 0.04em">Expected graduation</p>
+        </div>
+        <div>
+          <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 40px; line-height: 1">7</p>
+          <p style="margin: 8px 0 0; font-size: 14px; color: rgba(27,24,21,0.55); letter-spacing: 0.04em">Organizational roles</p>
+        </div>
+        <div>
+          <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 40px; line-height: 1">11</p>
+          <p style="margin: 8px 0 0; font-size: 14px; color: rgba(27,24,21,0.55); letter-spacing: 0.04em">Marketing tools</p>
+        </div>
+      </div>
+    </div>
+    <div class="rg-hero-visual" style="position: relative; animation: rise .7s .15s ease both">
+      <div style="position: absolute; inset: 40px -24px -24px 24px; background: var(--accent-tint, rgba(122,43,43,0.1)); border-radius: var(--portrait-radius, 300px 300px 0 0)"></div>
+      <div style="position: relative; aspect-ratio: 3/4; border-radius: var(--portrait-radius, 300px 300px 0 0); overflow: hidden; background: #e9e4de">
+        <img src="assets/photo-p1-7.png" alt="Portrait of Elycia Winata" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; transition: transform .45s ease" style-hover="transform: scale(1.05)" />
+      </div>
+      <div class="currently-badge" style="position: absolute; left: -20px; bottom: 36px; background: #1b1815; color: #f7f5f2; padding: 16px 24px; border-radius: 12px; display: flex; flex-direction: column; gap: 3px">
+        <span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,245,242,0.55)">Currently</span>
+        <span style="font-size: 16px; font-weight: 500">Marcomm Intern @ Aryaduta</span>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showMarquee }}" hint-placeholder-val="{{ true }}">
+    <div id="marquee" style="background: #1b1815; color: #f7f5f2; overflow: hidden; padding: 22px 0; white-space: nowrap">
+      <div style="display: inline-flex; gap: 56px; animation: marquee 32s linear infinite; padding-right: 56px">
+        <span style="font-size: 20px; letter-spacing: 0.08em">SEO Copywriting</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px">Google Ads</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-size: 20px; letter-spacing: 0.08em">Meta Ads</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px">TikTok Ads</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-size: 20px; letter-spacing: 0.08em">Shopee Ads</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px">Public Relations</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-size: 20px; letter-spacing: 0.08em">Brand24</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px">Copywriting</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-size: 20px; letter-spacing: 0.08em">SEO Copywriting</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px">Google Ads</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-size: 20px; letter-spacing: 0.08em">Meta Ads</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px">TikTok Ads</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-size: 20px; letter-spacing: 0.08em">Shopee Ads</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px">Public Relations</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-size: 20px; letter-spacing: 0.08em">Brand24</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px">Copywriting</span><span style="color: var(--accent, #7a2b2b); font-size: 20px">·</span>
+      </div>
+    </div>
+  </sc-if>
+
+  <section id="about" class="rg-container rg-2col" style="max-width: 1220px; margin: 0 auto; padding: 110px 40px; display: grid; grid-template-columns: 300px 1fr; gap: 70px; align-items: start">
+    <div>
+      <h2 style="margin: 0 0 30px; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent, #7a2b2b); font-weight: 600">01 — About</h2>
+      <div style="border-radius: 16px; overflow: hidden; aspect-ratio: 3/4">
+        <img src="assets/photo-p2-7.png" alt="Elycia at Binus University" style="width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; cursor: zoom-in" style-hover="transform: scale(1.05)" onClick="{{ openLightbox }}" />
+      </div>
+      <p style="margin: 14px 0 0; font-size: 13px; font-family: ui-monospace, Menlo, monospace; color: rgba(27,24,21,0.45)">Binus University, Jakarta</p>
+    </div>
+    <div>
+      <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(28px, 4vw, 40px); line-height: 1.35; letter-spacing: -0.01em; text-wrap: pretty">An 8th-semester Marketing Communication student at Binus University — graduating 2026 — who believes good marketing starts with <em style="color: var(--accent, #7a2b2b)">genuine communication</em>.</p>
+      <div class="rg-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-top: 48px">
+        <p style="margin: 0; font-size: 17px; line-height: 1.75; color: rgba(27,24,21,0.7)">Across previous semesters I actively took part in campus organizations, activities, and internships — each strengthening my marketing communication, leadership, and teamwork skills.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.75; color: rgba(27,24,21,0.7)">I'm highly enthusiastic about developing my abilities through new experiences, and looking for roles centred on marketing strategy and communication.</p>
+      </div>
+      <div style="margin-top: 56px; padding-top: 40px; border-top: 1px solid rgba(27,24,21,0.12)">
+        <h3 style="margin: 0 0 26px; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(27,24,21,0.5); font-weight: 600">Education</h3>
+        <div style="display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: baseline; padding-bottom: 22px; border-bottom: 1px solid rgba(27,24,21,0.1)">
+          <div>
+            <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500; letter-spacing: -0.01em">Binus University</h4>
+            <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6)">S1 Marketing Communication</p>
+          </div>
+          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2022 — 2026</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: baseline; padding-top: 22px">
+          <div>
+            <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500; letter-spacing: -0.01em">Tunas Mulia Senior High School</h4>
+            <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6)">Senior secondary education</p>
+          </div>
+          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2019 — 2022</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="background: #efece7; border-top: 1px solid rgba(27,24,21,0.06)">
+    <div class="rg-container rg-2col" style="max-width: 1220px; margin: 0 auto; padding: 110px 40px; display: grid; grid-template-columns: 300px 1fr; gap: 70px; align-items: start">
+      <div>
+        <h2 style="margin: 0 0 18px; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent, #7a2b2b); font-weight: 600">02 — Skills</h2>
+        <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(26px, 4vw, 34px); line-height: 1.2; letter-spacing: -0.01em">A toolkit built for digital marketing.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 48px">
+        <div>
+          <h3 style="margin: 0 0 22px; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(27,24,21,0.5)">Hard skills</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <span style="padding: 12px 22px; background: var(--accent, #7a2b2b); color: #f7f5f2; border-radius: 999px; font-size: 15px; font-weight: 500">Google Ads</span>
+            <span style="padding: 12px 22px; background: var(--accent, #7a2b2b); color: #f7f5f2; border-radius: 999px; font-size: 15px; font-weight: 500">Meta Ads</span>
+            <span style="padding: 12px 22px; background: var(--accent, #7a2b2b); color: #f7f5f2; border-radius: 999px; font-size: 15px; font-weight: 500">TikTok Ads</span>
+            <span style="padding: 12px 22px; background: var(--accent, #7a2b2b); color: #f7f5f2; border-radius: 999px; font-size: 15px; font-weight: 500">Shopee Ads</span>
+            <span style="padding: 12px 22px; background: var(--accent, #7a2b2b); color: #f7f5f2; border-radius: 999px; font-size: 15px; font-weight: 500">SEO Copywriting</span>
+            <span style="padding: 12px 22px; background: #fdfcfa; border: 1px solid rgba(27,24,21,0.12); border-radius: 999px; font-size: 15px">Brand24</span>
+            <span style="padding: 12px 22px; background: #fdfcfa; border: 1px solid rgba(27,24,21,0.12); border-radius: 999px; font-size: 15px">Google Workspace</span>
+            <span style="padding: 12px 22px; background: #fdfcfa; border: 1px solid rgba(27,24,21,0.12); border-radius: 999px; font-size: 15px">Microsoft Office</span>
+            <span style="padding: 12px 22px; background: #fdfcfa; border: 1px solid rgba(27,24,21,0.12); border-radius: 999px; font-size: 15px">Canva</span>
+            <span style="padding: 12px 22px; background: #fdfcfa; border: 1px solid rgba(27,24,21,0.12); border-radius: 999px; font-size: 15px">CapCut</span>
+            <span style="padding: 12px 22px; background: #fdfcfa; border: 1px solid rgba(27,24,21,0.12); border-radius: 999px; font-size: 15px">InShot</span>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin: 0 0 22px; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(27,24,21,0.5)">Soft skills</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <span style="padding: 12px 22px; border: 1px solid rgba(27,24,21,0.18); border-radius: 999px; font-size: 15px">Communication</span>
+            <span style="padding: 12px 22px; border: 1px solid rgba(27,24,21,0.18); border-radius: 999px; font-size: 15px">Public Relations</span>
+            <span style="padding: 12px 22px; border: 1px solid rgba(27,24,21,0.18); border-radius: 999px; font-size: 15px">Adaptability</span>
+            <span style="padding: 12px 22px; border: 1px solid rgba(27,24,21,0.18); border-radius: 999px; font-size: 15px">Time Management</span>
+            <span style="padding: 12px 22px; border: 1px solid rgba(27,24,21,0.18); border-radius: 999px; font-size: 15px">Collaboration</span>
+            <span style="padding: 12px 22px; border: 1px solid rgba(27,24,21,0.18); border-radius: 999px; font-size: 15px">Teamwork</span>
+            <span style="padding: 12px 22px; border: 1px solid rgba(27,24,21,0.18); border-radius: 999px; font-size: 15px">Problem Solving</span>
+            <span style="padding: 12px 22px; border: 1px solid rgba(27,24,21,0.18); border-radius: 999px; font-size: 15px">Creativity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="rg-container rg-2col" style="max-width: 1220px; margin: 0 auto; padding: 110px 40px; display: grid; grid-template-columns: 300px 1fr; gap: 70px; align-items: start">
+    <div>
+      <h2 style="margin: 0 0 18px; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent, #7a2b2b); font-weight: 600">03 — Experience</h2>
+      <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(26px, 4vw, 34px); line-height: 1.2; letter-spacing: -0.01em">From campus leadership to performance marketing.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 56px">
+      <div style="background: #1b1815; color: #f7f5f2; border-radius: 20px; padding: 46px 48px">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+          <p style="margin: 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.6); font-weight: 600">Working experience — Aryaduta Head Office</p>
+          <div style="display: flex; align-items: center; gap: 14px">
+            <span style="padding: 6px 14px; background: var(--accent, #7a2b2b); color: #f7f5f2; border-radius: 999px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600">Current</span>
+            <span style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(247,245,242,0.7)">Aug — Dec 2026</span>
+          </div>
+        </div>
+        <h3 style="margin: 18px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(30px, 5vw, 46px); font-weight: 400; letter-spacing: -0.01em; line-height: 1.1">Marketing Communication Intern</h3>
+        <p style="margin: 14px 0 0; font-size: 17px; color: rgba(247,245,242,0.75); line-height: 1.6; max-width: 36em">Aryaduta — supporting marketing communication at the head office of one of Indonesia's leading hospitality groups.</p>
+      </div>
+      <div style="background: var(--accent, #7a2b2b); color: #f7f5f2; border-radius: 20px; padding: 46px 48px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+          <p style="margin: 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.6); font-weight: 600">Working experience — Kawan Lama Group</p>
+          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(247,245,242,0.7)">2025 — 2026</span>
+        </div>
+        <h3 style="margin: 18px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(30px, 5vw, 46px); font-weight: 400; letter-spacing: -0.01em; line-height: 1.1">SEO/SEM Strategist Intern</h3>
+        <p style="margin: 14px 0 0; font-size: 17px; color: rgba(247,245,242,0.75); line-height: 1.6; max-width: 36em">Ruparupa — driving search visibility and paid performance for one of Indonesia's largest home &amp; living e-commerce platforms.</p>
+        <div class="rg-photos" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 34px">
+          <img src="assets/exp-p5-8.png" alt="At the Kawan Lama head office" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+          <img src="assets/exp-p5-6.png" alt="Retail on TikTok event" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+          <img src="assets/exp-p5-7.png" alt="Ruparupa anniversary with the team" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+          <img src="assets/exp-p5-9.png" alt="Kawan Lama intern graduation" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+        </div>
+      </div>
+      <div>
+        <h3 style="margin: 0 0 8px; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(27,24,21,0.5)">Organizational experience</h3>
+        <div style="display: flex; flex-direction: column">
+          <div class="rg-org-row" style="display: grid; grid-template-columns: 116px 1fr auto; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(27,24,21,0.1)">
+            <img src="assets/exp-p6-6.png" alt="Hapkido Binus LDK 2024/2025" style="width: 116px; height: 88px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500">Secretary General</h4>
+              <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6)">Hapkido Binus</p>
+            </div>
+            <span class="org-date" style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2024 — 2025</span>
+          </div>
+          <div class="rg-org-row" style="display: grid; grid-template-columns: 116px 1fr auto; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(27,24,21,0.1)">
+            <img src="assets/exp-p6-8.png" alt="Hapkido Binus training" style="width: 116px; height: 88px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500">Head of Activist Public Relations</h4>
+              <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6)">Hapkido Binus</p>
+            </div>
+            <span class="org-date" style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2023 — 2024</span>
+          </div>
+          <div class="rg-org-row" style="display: grid; grid-template-columns: 116px 1fr auto; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(27,24,21,0.1)">
+            <img src="assets/exp-p7-7.png" alt="First Year Program team" style="width: 116px; height: 88px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500">Freshmen Partner, First Year Program</h4>
+              <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6)">Binus University — Binusian 2027</p>
+            </div>
+            <span class="org-date" style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2023 — 2024</span>
+          </div>
+          <div class="rg-org-row" style="display: grid; grid-template-columns: 116px 1fr auto; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(27,24,21,0.1)">
+            <img src="assets/exp-p7-9.png" alt="Freshmen Leader gathering at Binus" style="width: 116px; height: 88px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500">Freshmen Leader, First Year Program</h4>
+              <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6)">Binus University — Binusian 2027</p>
+            </div>
+            <span class="org-date" style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2023</span>
+          </div>
+          <div class="rg-org-row" style="display: grid; grid-template-columns: 116px 1fr auto; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(27,24,21,0.1)">
+            <img src="assets/exp-p8-6.png" alt="Himmcomm Binus activity" style="width: 116px; height: 88px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500">Activist of Himmcomm</h4>
+              <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6)">Himmcomm Binus</p>
+            </div>
+            <span class="org-date" style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2023</span>
+          </div>
+          <div class="rg-org-row" style="display: grid; grid-template-columns: 116px 1fr auto; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(27,24,21,0.1)">
+            <img src="assets/exp-p8-7.png" alt="Student council at Tunas Mulia" style="width: 116px; height: 88px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500">Student Council</h4>
+              <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6); max-width: 40em">Tunas Mulia SHS — superior personality, national insight &amp; national defense</p>
+            </div>
+            <span class="org-date" style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2021 — 2022</span>
+          </div>
+          <div class="rg-org-row" style="display: grid; grid-template-columns: 116px 1fr auto; gap: 24px; align-items: center; padding: 20px 0">
+            <img src="assets/exp-p9-6.png" alt="Student council activity at Tunas Mulia" style="width: 116px; height: 88px; object-fit: cover; border-radius: 12px; transition: transform .35s ease; cursor: zoom-in" style-hover="transform: scale(1.06)" onClick="{{ openLightbox }}" />
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 22px; font-weight: 500">Student Council</h4>
+              <p style="margin: 0; font-size: 15px; color: rgba(27,24,21,0.6); max-width: 40em">Tunas Mulia SHS — physical quality, health &amp; nutrition</p>
+            </div>
+            <span class="org-date" style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: rgba(27,24,21,0.55)">2019 — 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background: #1b1815; color: #f7f5f2">
+    <div class="rg-container" style="max-width: 1220px; margin: 0 auto; padding: 120px 40px 70px">
+      <p style="margin: 0 0 24px; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(247,245,242,0.5); font-weight: 600">04 — Contact</p>
+      <h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(44px, 9vw, 84px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.02">Let's work <em style="color: oklch(0.72 0.09 25)">together</em></h2>
+      <p style="margin: 26px 0 60px; font-size: 19px; color: rgba(247,245,242,0.6); max-width: 32em; line-height: 1.6">Open to opportunities in marketing strategy, communication, and digital performance.</p>
+      <div class="rg-contact" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px">
+        <a href="mailto:winataelycia@gmail.com" style="border: 1px solid rgba(247,245,242,0.16); border-radius: 16px; padding: 28px; display: block; color: #f7f5f2" style-hover="border-color: rgba(247,245,242,0.6); transform: translateY(-3px); color: #f7f5f2">
+          <span style="display: block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.45); margin-bottom: 14px">Email</span>
+          <span style="font-size: 17px; word-break: break-all">winataelycia@gmail.com</span>
+        </a>
+        <a href="tel:+6282226020578" style="border: 1px solid rgba(247,245,242,0.16); border-radius: 16px; padding: 28px; display: block; color: #f7f5f2" style-hover="border-color: rgba(247,245,242,0.6); transform: translateY(-3px); color: #f7f5f2">
+          <span style="display: block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.45); margin-bottom: 14px">Phone</span>
+          <span style="font-size: 17px">+62 822-2602-0578</span>
+        </a>
+        <a href="https://www.linkedin.com/in/elycia-winata-560531328" target="_blank" rel="noopener" style="border: 1px solid rgba(247,245,242,0.16); border-radius: 16px; padding: 28px; display: block; color: #f7f5f2" style-hover="border-color: rgba(247,245,242,0.6); transform: translateY(-3px); color: #f7f5f2">
+          <span style="display: block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.45); margin-bottom: 14px">LinkedIn</span>
+          <span style="font-size: 17px">elycia-winata</span>
+        </a>
+        <a href="https://instagram.com/elycia.w" target="_blank" rel="noopener" style="border: 1px solid rgba(247,245,242,0.16); border-radius: 16px; padding: 28px; display: block; color: #f7f5f2" style-hover="border-color: rgba(247,245,242,0.6); transform: translateY(-3px); color: #f7f5f2">
+          <span style="display: block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,245,242,0.45); margin-bottom: 14px">Instagram</span>
+          <span style="font-size: 17px">@elycia.w</span>
+        </a>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 80px; padding-top: 28px; border-top: 1px solid rgba(247,245,242,0.12)">
+        <p style="margin: 0; font-size: 14px; color: rgba(247,245,242,0.4)">© 2026 Elycia Winata — Marketing Communication Portfolio</p>
+        <a href="#top" style="font-size: 14px; color: rgba(247,245,242,0.6)" style-hover="color: #f7f5f2">Back to top ↑</a>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position: fixed; inset: 0; z-index: 100; background: rgba(20,17,14,0.9); display: flex; align-items: center; justify-content: center; padding: 48px; cursor: zoom-out; animation: rise .25s ease both">
+      <sc-if value="{{ hasLightboxSrc }}" hint-placeholder-val="{{ false }}">
+        <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}" style="max-width: 92%; max-height: 92%; object-fit: contain; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.5)" />
+      </sc-if>
+      <button onClick="{{ closeLightbox }}" style="position: absolute; top: 28px; right: 32px; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(247,245,242,0.3); background: transparent; color: #f7f5f2; font-size: 22px; cursor: pointer; font-family: inherit" style-hover="border-color: #f7f5f2; background: rgba(247,245,242,0.1)">✕</button>
+      <p style="position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); margin: 0; color: rgba(247,245,242,0.7); font-size: 15px; white-space: nowrap">{{ lightboxAlt }}</p>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accentColor&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#7a2b2b&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#7a2b2b&quot;, &quot;#2b4a3f&quot;, &quot;#2b3a5e&quot;, &quot;#6b4e2e&quot;], &quot;section&quot;: &quot;Theme&quot; },
+  &quot;portraitShape&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;arch&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;arch&quot;, &quot;rectangle&quot;], &quot;section&quot;: &quot;Theme&quot; },
+  &quot;showSkillMarquee&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot; }
+}">
+class Component extends DCLogic {
+  state = { lightboxSrc: null, lightboxAlt: "" };
+  componentDidMount() {
+    this._esc = (e) => { if (e.key === "Escape") this.setState({ lightboxSrc: null }); };
+    window.addEventListener("keydown", this._esc);
+  }
+  componentWillUnmount() { window.removeEventListener("keydown", this._esc); }
+  renderVals() {
+    const accent = this.props.accentColor ?? "#7a2b2b";
+    const shape = this.props.portraitShape ?? "arch";
+    return {
+      accent,
+      accentTint: accent + "1a",
+      portraitRadius: shape === "arch" ? "300px 300px 0 0" : "20px",
+      showMarquee: this.props.showSkillMarquee ?? true,
+      downloadPdf: () => window.open("Elycia Portfolio Slides.dc.html?print=1", "_blank"),
+      lightboxOpen: !!this.state.lightboxSrc,
+      hasLightboxSrc: !!this.state.lightboxSrc,
+      lightboxSrc: this.state.lightboxSrc || "",
+      lightboxAlt: this.state.lightboxAlt,
+      openLightbox: (e) => this.setState({ lightboxSrc: e.target.src, lightboxAlt: e.target.alt || "" }),
+      closeLightbox: () => this.setState({ lightboxSrc: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>
